@@ -11,4 +11,5 @@ class Taks:
 CreacionTareaNueva = Taks("Test1", "Creacion de clase Taks")
 print(CreacionTareaNueva.mostrar())
 
-        
+class TasksPrincipal():
+    pass
