@@ -41,22 +41,73 @@ class Task(Base):
 Session = sessionmaker(bind=engine)
 session = Session()
 
+def pass_String(world):
+    return world.title()
+
 # Creacion de Tarea
-def add_task(title, container):
+def add_task(title_t, container):
+    format_title = title_t.title()
+    format_container = container.title()
     # Crear una nueva instancia de Task con los valores de title y container
-    task = Task(title_task=title, container_task=container)
+    task = Task(title_task=format_title, container_task=format_container)
     session.add(task)
     session.commit()
     return "Task Created!!"
 
 #Listar Tareas
-def list_taks(table):
-    tasks =  session.query(table).all()
+def list_taks():
+    tasks =  session.query(Task).all()
     for task in tasks:
         print(task)
 
-# print(add_task("Test2","Creacion de Test 2"))
-# list_taks(Task)
+# Funcion filtropor nombre 
+def filter_By_name(name):
+    farmat_name = name.title()
+    Query = session.query(Task.title_task, Task.container_task).filter(
+        Task.title_task == farmat_name
+    ).all()
+    for task in Query:
+       print(f'--------------\nTitulo : {task[0]}\nContenido : {task[1]}\n--------------')
+
+# Actualizar Tarea 
+def update_task(title, new_title , new_content):
+    up_title = pass_String(title)
+    task = session.query(Task).filter(Task.title_task == up_title).first()
+    if task:
+        # Actualizar los valores
+        task.title_task = new_title
+        task.container_task = new_content
+        
+        # Guardar los cambios
+        session.commit()
+        print(f"Task updated: {title} -> {new_title}, {new_content}")
+    else:
+        print(f"No task found with title: {title}")
+
+#update_task('test 6', 'test 6', 'update_test 5 to 6')
+
+#Elieminar Registros Tareas
+def delete_task(name_task):
+    task_to_delete = session.query(Task).filter(
+        Task.title_task == name_task
+    ).first()
+
+    if task_to_delete:
+        session.delete(task_to_delete)  # Eliminar el registro
+        session.commit()  # Confirmar los cambios
+        print(f"The Task with id: {task_to_delete.id} and Name: '{task_to_delete.title_task}' was Deleted")
+    else:
+        print(f"No task found with the name: {name_task}")
+
+delete_task("test 6")
+# Funcion filtro por Contenido / Opcional 
+# consultas = session.query(Task.title_task , Task.container_task).all()
+# print(consultas)
+# print(f"Titulo de la Tarea : {consultas[0][0]}\nCuerpo: {consultas[0][1]}")
+# print(add_task("test5","creacion de Test 5"))
+
+# filter_By_name('test5')
+# list_taks()
 
 if __name__ == '__main__':
     #Base.metadata.drop_all(engine)
