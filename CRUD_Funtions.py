@@ -77,9 +77,8 @@ def filter_By_name(name):
        print(f'--------------\nTitulo : {task[0]}\nContenido : {task[1]}\n--------------')
 
 # Actualizar Tarea 
-def update_task(title, new_title , new_content):
-    up_title = pass_String(title)
-    task = session.query(Task).filter(Task.title_task == up_title).first()
+def update_task(task_id, new_title , new_content):
+    task = session.query(Task).get(task_id)
     if task:
         # Actualizar los valores
         task.title_task = new_title
@@ -87,9 +86,9 @@ def update_task(title, new_title , new_content):
         
         # Guardar los cambios
         session.commit()
-        print(f"Task updated: {title} -> {new_title}, {new_content}")
+        return "Updated Task"
     else:
-        print(f"No task found with title: {title}")
+        return "Task Not Exists"
 
 #update_task('test 6', 'test 6', 'update_test 5 to 6')
 
