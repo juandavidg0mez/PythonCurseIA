@@ -19,11 +19,11 @@ Por otro lado, SQLAlchemy también incluye un tipo llamado DateTime que se utili
 
 #Coneccion Base De datos MYsql
 username = 'root' 
-password = 'juandavidgomez15' 
+password = 'juandavidgomez' 
 host = 'localhost' 
 port = '3306' 
-database = 'Alchemy'
-engine = create_engine(f'mysql+mysqldb://{username}:{password}@{host}:{port}/{database}')
+database = 'NewData'
+engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}')
 
 
 Base = declarative_base()
@@ -54,12 +54,19 @@ def add_task(title_t, container):
     session.commit()
     return "Task Created!!"
 
-#Listar Tareas
-def list_taks():
-    tasks =  session.query(Task).all()
-    for task in tasks:
-        print(task)
 
+# add_task('Test Casa Aura', 'Creacion de basses de datos y entornos virtuales desde la casa de mi hermana')
+
+#Listar Tareas
+# retorna una lista de tuplas
+def list_task():
+    if session.query(Task).count() == 0:
+        return "Create A Task"
+    else:
+        task_list = session.query(Task).all()
+        list_about_task= [(i.id, i.title_task, i.container_task) for i in task_list]
+        return list_about_task
+print(list_task())
 # Funcion filtropor nombre 
 def filter_By_name(name):
     farmat_name = name.title()
@@ -70,9 +77,8 @@ def filter_By_name(name):
        print(f'--------------\nTitulo : {task[0]}\nContenido : {task[1]}\n--------------')
 
 # Actualizar Tarea 
-def update_task(title, new_title , new_content):
-    up_title = pass_String(title)
-    task = session.query(Task).filter(Task.title_task == up_title).first()
+def update_task(task_id, new_title , new_content):
+    task = session.query(Task).get(task_id)
     if task:
         # Actualizar los valores
         task.title_task = new_title
@@ -80,26 +86,23 @@ def update_task(title, new_title , new_content):
         
         # Guardar los cambios
         session.commit()
-        print(f"Task updated: {title} -> {new_title}, {new_content}")
+        return "Updated Task"
     else:
-        print(f"No task found with title: {title}")
+        return "Task Not Exists"
 
 #update_task('test 6', 'test 6', 'update_test 5 to 6')
 
 #Elieminar Registros Tareas
-def delete_task(name_task):
-    task_to_delete = session.query(Task).filter(
-        Task.title_task == name_task
-    ).first()
-
+def delete_task(task_id):
+    task_to_delete = session.query(Task).get(task_id)
     if task_to_delete:
-        session.delete(task_to_delete)  # Eliminar el registro
-        session.commit()  # Confirmar los cambios
-        print(f"The Task with id: {task_to_delete.id} and Name: '{task_to_delete.title_task}' was Deleted")
+        session.delete(task_to_delete)
+        session.commit()
     else:
-        print(f"No task found with the name: {name_task}")
+        return "Task Can't be deleted"
 
-delete_task("test 6")
+
+#delete_task("test 6")
 # Funcion filtro por Contenido / Opcional 
 # consultas = session.query(Task.title_task , Task.container_task).all()
 # print(consultas)
