@@ -19,11 +19,11 @@ Por otro lado, SQLAlchemy también incluye un tipo llamado DateTime que se utili
 
 #Coneccion Base De datos MYsql
 username = 'root' 
-password = 'juandavidgomez15' 
+password = 'juandavidgomez' 
 host = 'localhost' 
 port = '3306' 
-database = 'Alchemy'
-engine = create_engine(f'mysql+mysqldb://{username}:{password}@{host}:{port}/{database}')
+database = 'NewData'
+engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}')
 
 
 Base = declarative_base()
@@ -54,11 +54,16 @@ def add_task(title_t, container):
     session.commit()
     return "Task Created!!"
 
+
+# add_task('Test Casa Aura', 'Creacion de basses de datos y entornos virtuales desde la casa de mi hermana')
+
 #Listar Tareas
 def list_taks():
     tasks =  session.query(Task).all()
     for task in tasks:
         print(task)
+
+list_taks()
 
 # Funcion filtropor nombre 
 def filter_By_name(name):
@@ -99,7 +104,7 @@ def delete_task(name_task):
     else:
         print(f"No task found with the name: {name_task}")
 
-delete_task("test 6")
+#delete_task("test 6")
 # Funcion filtro por Contenido / Opcional 
 # consultas = session.query(Task.title_task , Task.container_task).all()
 # print(consultas)
