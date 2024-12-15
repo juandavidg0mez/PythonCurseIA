@@ -1,5 +1,5 @@
 import streamlit as st
-from crud_Funtions import add_task
+from crud_Funtions import add_task, list_task, delete_task
 # unsafe_allow_html=True Textos Segruos de fuentes deotras URLS
 
 st.markdown(
@@ -28,8 +28,17 @@ with col1:
         result = add_task(title, container) 
         st.success(result)
 
-with col2: 
-    st.header("Columna 2")
-    if 
-    st.write("Este es un texto en la columna 2") 
-    st.button("Botón en Columna 2") 
+with col2:
+    data = list_task()
+    if data == "Create A Task":
+        st.header("Create a New Task") 
+    else:
+        for i in data:
+            if len(i) < 3:
+                st.error(f"Datos incompletos para la tarea: {i}")
+                continue  # Pasa al siguiente ítem si los datos no son válidos
+            st.subheader(i[1])
+            st.text(i[2])
+            if st.button("Delete Task", key=f"delete_{i[0]}"):
+                delete_task(i[0])
+                st.success(f"task deleted {i[0]}")

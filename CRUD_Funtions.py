@@ -59,17 +59,14 @@ def add_task(title_t, container):
 
 #Listar Tareas
 # retorna una lista de tuplas
-def list_taks():
+def list_task():
     if session.query(Task).count() == 0:
         return "Create A Task"
     else:
         task_list = session.query(Task).all()
-        list_about_task= [(i.title_task, i.container_task) for i in task_list]
+        list_about_task= [(i.id, i.title_task, i.container_task) for i in task_list]
         return list_about_task
-
-
-
-
+print(list_task())
 # Funcion filtropor nombre 
 def filter_By_name(name):
     farmat_name = name.title()
@@ -97,17 +94,14 @@ def update_task(title, new_title , new_content):
 #update_task('test 6', 'test 6', 'update_test 5 to 6')
 
 #Elieminar Registros Tareas
-def delete_task(name_task):
-    task_to_delete = session.query(Task).filter(
-        Task.title_task == name_task
-    ).first()
-
+def delete_task(task_id):
+    task_to_delete = session.query(Task).get(task_id)
     if task_to_delete:
-        session.delete(task_to_delete)  # Eliminar el registro
-        session.commit()  # Confirmar los cambios
-        print(f"The Task with id: {task_to_delete.id} and Name: '{task_to_delete.title_task}' was Deleted")
+        session.delete(task_to_delete)
+        session.commit()
     else:
-        print(f"No task found with the name: {name_task}")
+        return "Task Can't be deleted"
+
 
 #delete_task("test 6")
 # Funcion filtro por Contenido / Opcional 
