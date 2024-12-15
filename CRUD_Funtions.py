@@ -58,12 +58,17 @@ def add_task(title_t, container):
 # add_task('Test Casa Aura', 'Creacion de basses de datos y entornos virtuales desde la casa de mi hermana')
 
 #Listar Tareas
+# retorna una lista de tuplas
 def list_taks():
-    tasks =  session.query(Task).all()
-    for task in tasks:
-        print(task)
+    if session.query(Task).count() == 0:
+        return "Create A Task"
+    else:
+        task_list = session.query(Task).all()
+        list_about_task= [(i.title_task, i.container_task) for i in task_list]
+        return list_about_task
 
-list_taks()
+
+
 
 # Funcion filtropor nombre 
 def filter_By_name(name):
