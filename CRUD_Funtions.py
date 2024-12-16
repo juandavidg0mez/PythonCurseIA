@@ -22,7 +22,7 @@ username = 'root'
 password = 'juandavidgomez' 
 host = 'localhost' 
 port = '3306' 
-database = 'NewData'
+database = 'backmys'
 engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}')
 
 
@@ -57,7 +57,7 @@ def add_task(title_t, container):
 
 # add_task('Test Casa Aura', 'Creacion de basses de datos y entornos virtuales desde la casa de mi hermana')
 
-#Listar Tareas
+# Listar Tareas
 # retorna una lista de tuplas
 def list_task():
     if session.query(Task).count() == 0:
@@ -66,7 +66,7 @@ def list_task():
         task_list = session.query(Task).all()
         list_about_task= [(i.id, i.title_task, i.container_task) for i in task_list]
         return list_about_task
-print(list_task())
+# print(list_task())
 # Funcion filtropor nombre 
 def filter_By_name(name):
     farmat_name = name.title()
