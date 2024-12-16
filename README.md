@@ -41,7 +41,7 @@ pip install sqlalchemy streamlit pymysql
 ```
 ## 4. Crear la base de datos
 
-Crea una base de datos y edita el Arichivo CRUD_Funtions.py
+Crea una base de datos en tu gestor de bases de datos y edita el Arichivo CRUD_Funtions.py
 ```python
 username = 'root' 
 password = 'tu_Pass' 
