@@ -5,6 +5,7 @@ Este proyecto gestiona tanques y recursos asociados. La aplicación permite a lo
 - Python 3.7+ instalado en tu sistema.
 - pip para la instalación de dependencias.
 - Mysql o algun gestor de bases de datos
+(Recuerda que esto fue desarrollado con Mysql)
 
 # Instalación
 
