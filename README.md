@@ -1,5 +1,5 @@
 # Tanks Manager
-Este proyecto gestiona tanques y recursos asociados. La aplicación permite a los usuarios visualizar y gestionar los datos relacionados con tareas, utilizando Streamlit para la interfaz de usuario y SQLAlchemy para la gestión de la base de datos.
+Este proyecto gestiona tareas y recursos asociados. La aplicación permite a los usuarios visualizar y gestionar los datos relacionados con tareas, utilizando Streamlit para la interfaz de usuario y SQLAlchemy para la gestión de la base de datos.
 
 # Requisitos previos
 - Python 3.7+ instalado en tu sistema.
