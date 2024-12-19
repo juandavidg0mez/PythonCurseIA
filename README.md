@@ -79,5 +79,5 @@ Poemos Eliminar
 # Result depues de elimnar
 ![Base](/PythonCurseIA/ImgReadme/result.png)
 # Check
-![Base](/PythonCurseIA/ImgReadme/check.png)
+![Base](/ImgReadme/check.png)
 funcion en desarrollo
