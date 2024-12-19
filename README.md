@@ -64,7 +64,7 @@ Se abrira un pop-up en tu navegador
 
 # A Continuacion como se ve el Proyecto deslegado con Streamlit
 Aca estamos creando una terea Al momento de no tener tareas nos pide que cree mos una 
-![Base](/PythonCurseIA/ImgReadme/image.png "Título opcional")
+![Base](/ImgReadme/image.png "Título opcional")
 
 ## Aca Creamos una terea y se visualiza ya en pagina principal
 ![Base](/PythonCurseIA/ImgReadme/Screenshot%202024-12-18%20212845.png )
