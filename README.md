@@ -61,3 +61,23 @@ Una vez que la base de datos esté configurada, puedes iniciar la aplicación St
 streamlit run Front_ST.py
 ```
 Se abrira un pop-up en tu navegador
+
+# A Continuacion como se ve el Proyecto deslegado con Streamlit
+Aca estamos creando una terea Al momento de no tener tareas nos pide que cree mos una 
+![Base](/PythonCurseIA/ImgReadme/image.png "Título opcional")
+
+## Aca Creamos una terea y se visualiza ya en pagina principal
+![Base](/PythonCurseIA/ImgReadme/Screenshot%202024-12-18%20212845.png )
+Tambien podremos ver los botones interactivos de eliminar Editar y Check
+![Base](/PythonCurseIA/ImgReadme/Screenshot%202024-12-18%20213003.png )
+# Boton Edit
+Al momento de editar se desplega la tarea a editar esto con elfin de facilitar la edicion de latera y posterios guardado en Base de datos
+![Base](/PythonCurseIA/ImgReadme/edit.png)
+# Boton Delete
+Poemos Eliminar
+![Base](/PythonCurseIA/ImgReadme/delete.png)
+# Result depues de elimnar
+![Base](/PythonCurseIA/ImgReadme/result.png)
+# Check
+![Base](/PythonCurseIA/ImgReadme/check.png)
+funcion en desarrollo
