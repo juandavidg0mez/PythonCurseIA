@@ -67,17 +67,17 @@ Aca estamos creando una terea Al momento de no tener tareas nos pide que cree mo
 ![Base](/ImgReadme/image.png "Título opcional")
 
 ## Aca Creamos una terea y se visualiza ya en pagina principal
-![Base](/PythonCurseIA/ImgReadme/Screenshot%202024-12-18%20212845.png )
+![Base](/ImgReadme/Screenshot%202024-12-18%20212845.png )
 Tambien podremos ver los botones interactivos de eliminar Editar y Check
-![Base](/PythonCurseIA/ImgReadme/Screenshot%202024-12-18%20213003.png )
+![Base](/ImgReadme/Screenshot%202024-12-18%20213003.png )
 # Boton Edit
 Al momento de editar se desplega la tarea a editar esto con elfin de facilitar la edicion de latera y posterios guardado en Base de datos
-![Base](/PythonCurseIA/ImgReadme/edit.png)
+![Base](/ImgReadme/edit.png)
 # Boton Delete
 Poemos Eliminar
-![Base](/PythonCurseIA/ImgReadme/delete.png)
+![Base](/ImgReadme/delete.png)
 # Result depues de elimnar
-![Base](/PythonCurseIA/ImgReadme/result.png)
+![Base](/ImgReadme/result.png)
 # Check
-![Base](/ImgReadme/check.png)
+![Base](/check.png)
 funcion en desarrollo
