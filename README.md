@@ -79,5 +79,5 @@ Poemos Eliminar
 # Result depues de elimnar
 ![Base](/ImgReadme/result.png)
 # Check
-![Base](/check.png)
+![Base](/ImgReadme/check.png)
 funcion en desarrollo
